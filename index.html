@@ -759,22 +759,43 @@ form.addEventListener('submit', function(e){
     if(firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
     return;
   }
-  // --- 本番ではここでフォームサービス（Google Form / Typeform 等）へ送信する ---
   var data = Object.fromEntries(new FormData(form).entries());
   console.log('[lead_submitted]', data);
 
-  // ===== Google広告 コンバージョン計測（リードフォームの送信）=====
-  if (window.gtag) {
-    gtag('event', 'conversion', {
-      'send_to': 'AW-16654914627/PiiBCMitpMUcEMOo14U-',
-      'value': 1.0,
-      'currency': 'JPY'
-    });
+  var submitBtn = form.querySelector('[data-cta="form-submit"]');
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '送信中…'; }
+
+  function showThanks(){
+    // ===== Google広告 コンバージョン計測（送信成功時のみ）=====
+    if (window.gtag) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-16654914627/PiiBCMitpMUcEMOo14U-',
+        'value': 1.0,
+        'currency': 'JPY'
+      });
+    }
+    form.style.display = 'none';
+    thanks.classList.add('show');
+    thanks.scrollIntoView({behavior:'smooth', block:'center'});
   }
 
-  form.style.display = 'none';
-  thanks.classList.add('show');
-  thanks.scrollIntoView({behavior:'smooth', block:'center'});
+  // ===== FormSubmit へ送信（申込内容がメールに届きます）=====
+  fetch('https://formsubmit.co/ajax/s.hiraiwa.31@gmail.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(Object.assign({
+      _subject: '【改装診断】新しい無料診断のお申し込み',
+      _template: 'table',
+      _captcha: 'false'
+    }, data))
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(){ showThanks(); })
+  .catch(function(err){
+    console.error('[formsubmit_error]', err);
+    alert('送信に失敗しました。お手数ですが、時間をおいて再度お試しください。');
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = '無料診断を申し込む'; }
+  });
 });
 </script>
 </body>
