@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>改装判断 — 退去のたびの「どう直そう」を、プロにおまかせ。｜リノベレシピ</title>
+<meta name="description" content="自主管理オーナー向け。退去のたびに2週間悩む改装判断を、競合とニーズのデータから『埋まる改装』として導き、地元工務店3社の見積比較・発注まで一気通貫。いま無料診断モニター受付中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --bg-soft:#FFF7F3;
+  --cream:#FDF1EA;
+  --peach:#FCE8DF;
+  --ink:#2F2A27;
+  --ink-soft:#8A8079;
+  --line:#F2E7DF;
+  --line-2:#EFE3DA;
+  --coral:#F47A5A;
+  --coral-deep:#E45B39;
+  --coral-soft:#FBE2D8;
+  --gold:#E3A96C;
+  --beige:#EFE7DD;
+  --white:#FFFFFF;
+  --shadow:0 22px 54px -26px rgba(228,91,57,.26);
+  --shadow-sm:0 12px 30px -18px rgba(120,90,70,.32);
+  --r:22px;
+  --r-lg:34px;
+  --round:"Zen Maru Gothic","Zen Kaku Gothic New",sans-serif;
+  --sans:"Zen Kaku Gothic New",system-ui,sans-serif;
+  --serif:"Fraunces",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:1rem;color:var(--ink)}
+img{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.narrow{max-width:880px}
+
+/* ===== 強調 ===== */
+.hl{background:linear-gradient(transparent 56%, var(--coral-soft) 56%);padding:0 .08em;font-weight:700}
+.accent{color:var(--coral-deep);font-weight:700}
+.eyebrow{display:inline-block;font-family:var(--round);font-size:.78rem;letter-spacing:.14em;color:var(--coral-deep);font-weight:700;background:var(--coral-soft);padding:5px 16px;border-radius:999px}
+.en{font-family:var(--serif);letter-spacing:.02em}
+
+/* ===== buttons ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;background:var(--coral);color:#fff;font-family:var(--round);font-weight:700;letter-spacing:.02em;padding:15px 30px;border-radius:999px;font-size:1rem;box-shadow:0 14px 26px -12px rgba(228,91,57,.6);transition:.25s}
+.btn:hover{background:var(--coral-deep);transform:translateY(-2px)}
+.btn .arr{font-size:1.1em}
+.btn-lg{padding:19px 44px;font-size:1.12rem}
+.btn-ghost{background:#fff;color:var(--coral-deep);border:2px solid var(--coral-soft);box-shadow:none}
+.btn-ghost:hover{background:var(--coral-soft);color:var(--coral-deep);transform:translateY(-2px)}
+.topbar .btn{padding:11px 22px;font-size:.9rem}
+@media(max-width:560px){.topbar .btn{padding:10px 16px;font-size:.8rem}}
+
+/* ===== header ===== */
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 22px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:9px}
+.brand .logo{font-family:var(--serif);font-weight:600;font-size:1.34rem;color:var(--ink)}
+.brand .logo .dot{color:var(--coral)}
+.brand .tag{font-family:var(--round);font-size:.62rem;letter-spacing:.18em;color:var(--ink-soft)}
+@media(max-width:560px){.brand .tag{display:none}}
+
+/* ===== hero ===== */
+.hero{position:relative;padding:56px 0 76px;background:linear-gradient(180deg,var(--bg-soft),#fff 88%);overflow:hidden}
+.hero::before{content:"";position:absolute;right:-8%;top:-12%;width:42vw;height:42vw;max-width:560px;max-height:560px;border-radius:50%;background:radial-gradient(circle at 40% 40%,var(--peach),transparent 70%);z-index:0}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:46px;align-items:center}
+.hero h1{font-family:var(--round);font-weight:700;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.42;letter-spacing:.01em;margin:18px 0 18px}
+.hero .lead{font-size:1.05rem;color:var(--ink-soft);max-width:30em;margin-bottom:26px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px}
+.hero .micro{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.82rem;color:var(--ink-soft)}
+.hero .micro span{display:inline-flex;align-items:center;gap:6px}
+.hero .micro svg{width:16px;height:16px;color:var(--coral)}
+.hero-art{position:relative;aspect-ratio:4/4.4}
+.hero-art .main{width:100%;height:100%;border-radius:46% 46% 42% 42%/ 40% 40% 50% 50%;overflow:hidden;box-shadow:var(--shadow);border:8px solid #fff}
+.hero-art .main img{width:100%;height:100%;object-fit:cover}
+.hero-art .badge{position:absolute;left:-6px;bottom:30px;background:#fff;border-radius:18px;padding:13px 18px;box-shadow:var(--shadow-sm);font-family:var(--round);font-weight:700;font-size:.92rem;line-height:1.4}
+.hero-art .badge b{color:var(--coral-deep);font-size:1.4em;font-family:var(--serif)}
+.hero-art .badge small{display:block;font-weight:500;font-size:.72rem;color:var(--ink-soft)}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;gap:30px}.hero-art{max-width:420px;margin:0 auto;width:100%}.hero{padding:36px 0 52px}}
+
+/* ===== scale strip ===== */
+.scale{background:var(--coral);color:#fff;padding:30px 0}
+.scale-in{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:center}
+.scale .num{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1;font-weight:600}
+.scale .lbl{font-size:.84rem;opacity:.92;margin-top:6px}
+.scale .col{position:relative}
+.scale .col+.col::before{content:"";position:absolute;left:0;top:10%;height:80%;width:1px;background:rgba(255,255,255,.3)}
+@media(max-width:600px){.scale-in{grid-template-columns:1fr;gap:14px}.scale .col+.col::before{display:none}.scale .col+.col{padding-top:14px;border-top:1px solid rgba(255,255,255,.25)}}
+
+/* ===== section base ===== */
+section.sec{padding:78px 0}
+.bg-soft{background:var(--bg-soft)}
+.bg-cream{background:var(--cream)}
+.sec-head{text-align:center;max-width:42em;margin:0 auto 44px}
+.sec-head h2{font-family:var(--round);font-weight:700;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.5;margin:14px 0 12px}
+.sec-head p{color:var(--ink-soft)}
+
+/* placeholder marker */
+.ph{position:relative;border:2px dashed var(--coral)!important;background:repeating-linear-gradient(45deg,#fff,#fff 14px,#FFF6F2 14px,#FFF6F2 28px)!important}
+.ph-tag{position:absolute;top:10px;right:10px;background:var(--coral);color:#fff;font-family:var(--round);font-weight:700;font-size:.68rem;padding:3px 10px;border-radius:999px;letter-spacing:.04em;z-index:2}
+.ph-note{font-size:.82rem;color:var(--coral-deep);font-weight:500}
+
+/* ===== problem cards ===== */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;box-shadow:var(--shadow-sm);transition:.3s;text-align:center}
+.card:hover{transform:translateY(-5px)}
+.card .ic{width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--coral-soft);margin:0 auto 14px}
+.card .ic svg{width:30px;height:30px;color:var(--coral-deep)}
+.card h3{font-family:var(--round);font-weight:700;font-size:1.04rem;margin-bottom:8px;line-height:1.5}
+.card p{font-size:.9rem;color:var(--ink-soft)}
+@media(max-width:860px){.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.cards{grid-template-columns:1fr}}
+
+/* ===== value 3本柱 ===== */
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.value{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+.value .vp{aspect-ratio:16/10;overflow:hidden}
+.value .vp img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.value:hover .vp img{transform:scale(1.06)}
+.value .vb{padding:26px 24px 30px}
+.value .no{font-family:var(--serif);color:var(--coral);font-size:1rem}
+.value h3{font-family:var(--round);font-weight:700;font-size:1.24rem;margin:6px 0 10px}
+.value p{font-size:.94rem;color:var(--ink-soft)}
+@media(max-width:820px){.values{grid-template-columns:1fr}}
+
+/* ===== reasons (alternating rows) ===== */
+.reason{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:64px}
+.reason:last-child{margin-bottom:0}
+.reason:nth-child(even) .r-img{order:2}
+.r-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/3.6}
+.r-img img{width:100%;height:100%;object-fit:cover}
+.r-txt .rnum{font-family:var(--serif);font-size:2.6rem;color:var(--coral-soft);line-height:1;font-weight:600}
+.r-txt .rkick{font-family:var(--round);color:var(--coral-deep);font-weight:700;font-size:.84rem;letter-spacing:.06em}
+.r-txt h3{font-family:var(--round);font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.5;margin:6px 0 14px}
+.r-txt p{color:var(--ink-soft)}
+/* comparison table inside reason */
+.cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:18px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.cmp th,.cmp td{padding:13px 14px;font-size:.9rem;text-align:left;border-bottom:1px solid var(--line)}
+.cmp thead th{background:var(--ink);color:#fff;font-family:var(--round);font-weight:700;text-align:center}
+.cmp thead th.me{background:var(--coral)}
+.cmp td{background:#fff}
+.cmp td.me{background:var(--coral-soft);font-weight:700;color:var(--coral-deep);text-align:center}
+.cmp td.you{text-align:center;color:var(--ink-soft)}
+@media(max-width:820px){.reason{grid-template-columns:1fr;gap:24px;margin-bottom:46px}.reason:nth-child(even) .r-img{order:0}}
+
+/* ===== experts / voices cards ===== */
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.person{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;box-shadow:var(--shadow-sm);text-align:center}
+.avatar{width:92px;height:92px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,var(--coral-soft),var(--peach));display:flex;align-items:center;justify-content:center;color:var(--coral-deep);font-family:var(--round);font-weight:700;font-size:1.6rem;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.person h4{font-family:var(--round);font-weight:700;font-size:1.05rem}
+.person .role{font-size:.8rem;color:var(--ink-soft);margin-bottom:10px}
+.person p{font-size:.9rem;color:var(--ink-soft);text-align:left}
+.tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+.tags span{font-size:.74rem;background:var(--cream);color:var(--coral-deep);padding:3px 11px;border-radius:999px;font-weight:500}
+@media(max-width:820px){.people{grid-template-columns:1fr}}
+
+/* founder */
+.founder{max-width:760px;margin:0 auto;display:grid;grid-template-columns:190px 1fr;gap:30px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:34px;box-shadow:var(--shadow-sm)}
+.founder .fphoto{width:180px;height:180px;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--coral-soft),var(--peach));display:flex;align-items:center;justify-content:center;color:var(--coral-deep);font-family:var(--round);font-weight:700;font-size:3rem;position:relative}
+.founder .fphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.founder .qual{display:inline-block;background:var(--coral);color:#fff;font-family:var(--round);font-weight:700;font-size:.82rem;padding:5px 14px;border-radius:999px;margin-bottom:10px}
+.founder h3{font-family:var(--round);font-weight:700;font-size:1.4rem;margin-bottom:2px}
+.founder .frole{font-size:.86rem;color:var(--ink-soft);margin-bottom:12px}
+.founder p{font-size:.94rem;color:var(--ink-soft)}
+@media(max-width:680px){.founder{grid-template-columns:1fr;text-align:center;padding:28px 22px}.founder .fphoto{margin:0 auto}.founder .tags{justify-content:center}}
+
+/* voice */
+.voice .stars{color:var(--gold);letter-spacing:2px;margin-bottom:8px}
+.voice .result{display:inline-block;background:var(--coral);color:#fff;font-family:var(--round);font-weight:700;font-size:.86rem;padding:6px 14px;border-radius:999px;margin:10px 0}
+/* case study */
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:880px;margin:0 auto}
+.case{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 28px;box-shadow:var(--shadow-sm);min-width:0}
+.case .cno{font-family:var(--round);font-weight:700;color:var(--coral-deep);font-size:.9rem;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.case .metric{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.case .metric:last-child{border-bottom:none}
+.case .metric .ml{font-size:.86rem;color:var(--ink-soft);flex:none}
+.case .metric .mv{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;min-width:0}
+.case .before{color:var(--ink-soft);text-decoration:line-through;font-size:.92rem}
+.case .arr{color:var(--coral);font-weight:700}
+.case .after{font-family:var(--round);font-weight:700;font-size:1.06rem}
+.case .badge{background:var(--coral-soft);color:var(--coral-deep);font-family:var(--round);font-weight:700;font-size:.74rem;padding:2px 9px;border-radius:999px}
+.case .badge.up{background:#E7F0E3;color:#5C7E50}
+.case .metric.big{margin-top:4px}
+.case .result-num{font-family:var(--serif);font-weight:600;color:var(--coral-deep);font-size:1.5rem;line-height:1.2}
+@media(max-width:680px){.cases{grid-template-columns:minmax(0,1fr)}.case .metric{display:block}.case .metric .ml{margin-bottom:3px}.case .metric .mv{justify-content:flex-start}.case .result-num{font-size:1.4rem}}
+
+/* ===== steps ===== */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:#fff;border-radius:var(--r);padding:26px 20px;border:1px solid var(--line);box-shadow:var(--shadow-sm);position:relative;text-align:center}
+.step .sno{width:42px;height:42px;border-radius:50%;background:var(--coral);color:#fff;font-family:var(--serif);font-size:1.2rem;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.step h3{font-family:var(--round);font-weight:700;font-size:1.04rem;margin-bottom:8px}
+.step p{font-size:.86rem;color:var(--ink-soft)}
+.step .arr{position:absolute;right:-12px;top:46px;color:var(--coral-soft);z-index:2}
+.step:last-child .arr{display:none}
+@media(max-width:820px){.steps{grid-template-columns:1fr 1fr}.step .arr{display:none}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* ===== options ===== */
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.opt{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm)}
+.opt h4{font-family:var(--round);font-weight:700;font-size:1.06rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.opt .price{color:var(--coral-deep);font-family:var(--serif);font-weight:600}
+.opt p{font-size:.88rem;color:var(--ink-soft);margin-top:6px}
+@media(max-width:820px){.opts{grid-template-columns:1fr}}
+
+/* ===== trust/support ===== */
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:880px;margin:0 auto}
+.trust li{list-style:none;display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;box-shadow:var(--shadow-sm)}
+.trust li .ck{flex:none;width:34px;height:34px;border-radius:50%;background:var(--coral-soft);display:flex;align-items:center;justify-content:center}
+.trust li .ck svg{width:18px;height:18px;color:var(--coral-deep)}
+.trust li b{font-family:var(--round);display:block;margin-bottom:3px}
+.trust li p{font-size:.88rem;color:var(--ink-soft)}
+@media(max-width:680px){.trust{grid-template-columns:1fr}}
+
+/* ===== pricing ===== */
+.pricing{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:820px;margin:0 auto}
+.price-c{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:34px 30px;box-shadow:var(--shadow-sm);text-align:center}
+.price-c .pl{font-family:var(--round);font-weight:700;color:var(--ink-soft);font-size:.9rem}
+.price-c .amount{font-family:var(--serif);font-size:2.7rem;color:var(--ink);margin:10px 0 4px;font-weight:600}
+.price-c .amount small{font-size:.32em;color:var(--ink-soft);font-family:var(--sans);font-weight:500}
+.price-c p{font-size:.9rem;color:var(--ink-soft);margin-top:8px}
+.monitor{margin:30px auto 0;max-width:820px;background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#fff;border-radius:var(--r-lg);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.monitor b{font-family:var(--round);font-weight:700;font-size:1.24rem}
+.monitor p{font-size:.92rem;opacity:.95;margin-top:4px}
+.monitor .btn{background:#fff;color:var(--coral-deep)}
+.monitor .btn:hover{background:var(--ink);color:#fff}
+@media(max-width:680px){.pricing{grid-template-columns:1fr}}
+
+/* ===== faq ===== */
+.faq{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:2px 22px;box-shadow:var(--shadow-sm)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-family:var(--round);font-weight:700;font-size:1.02rem;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .q{color:var(--coral-deep);font-family:var(--serif);margin-right:8px}
+.faq summary .mk{flex:none;width:22px;height:22px;position:relative;transition:.3s}
+.faq summary .mk::before,.faq summary .mk::after{content:"";position:absolute;background:var(--coral);border-radius:2px}
+.faq summary .mk::before{left:50%;top:2px;width:2px;height:18px;transform:translateX(-50%)}
+.faq summary .mk::after{top:50%;left:2px;height:2px;width:18px;transform:translateY(-50%)}
+.faq details[open] summary .mk{transform:rotate(135deg)}
+.faq .ans{padding:0 0 20px;color:var(--ink-soft);font-size:.93rem}
+
+/* ===== final cta / form ===== */
+.cta-band{background:linear-gradient(160deg,var(--bg-soft),var(--peach));padding:78px 0}
+.formwrap{max-width:660px;margin:0 auto;background:#fff;border-radius:var(--r-lg);padding:42px;box-shadow:var(--shadow)}
+.formwrap .form-photo{aspect-ratio:16/6;border-radius:var(--r) var(--r) 0 0;overflow:hidden;margin:-42px -42px 24px}
+.formwrap .form-photo img{width:100%;height:100%;object-fit:cover}
+.formwrap h2{font-family:var(--round);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);text-align:center;margin-bottom:6px}
+.formwrap .sub{text-align:center;color:var(--ink-soft);margin-bottom:6px}
+.free-badge{display:block;text-align:center;color:var(--coral-deep);font-family:var(--round);font-weight:700;margin:0 auto 24px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.86rem;font-weight:700;font-family:var(--round);margin-bottom:7px}
+.field label .req{color:#fff;background:var(--coral);font-size:.66rem;padding:2px 8px;border-radius:999px;margin-left:7px;font-family:var(--sans);font-weight:500}
+.field label .opt{color:var(--ink-soft);font-size:.72rem;margin-left:7px;font-family:var(--sans);font-weight:400}
+.field input,.field select,.field textarea{width:100%;padding:13px 15px;border:1.5px solid var(--line-2);border-radius:14px;background:var(--bg-soft);transition:.2s;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--coral);background:#fff;box-shadow:0 0 0 3px var(--coral-soft)}
+.field textarea{resize:vertical;min-height:80px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-cta{width:100%;margin-top:8px}
+.form-note{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:12px}
+.err{color:var(--coral-deep);font-size:.8rem;margin-top:6px;display:none}
+.field.invalid input,.field.invalid select{border-color:var(--coral)}
+.field.invalid .err{display:block}
+.thanks{display:none;text-align:center;padding:24px 8px}
+.thanks.show{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.thanks .ck{width:74px;height:74px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.thanks .ck svg{width:38px;height:38px;color:#fff}
+.thanks h3{font-family:var(--round);font-weight:700;font-size:1.4rem;margin-bottom:10px}
+.thanks p{color:var(--ink-soft)}
+@media(max-width:520px){.formwrap{padding:28px 20px}.formwrap .form-photo{margin:-28px -20px 20px}.grid2{grid-template-columns:1fr}}
+
+/* ===== footer ===== */
+footer{background:var(--ink);color:#e9ded6;padding:46px 0 30px}
+footer .ft{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer .logo{font-family:var(--serif);font-size:1.3rem;color:#fff}
+footer .logo .dot{color:var(--coral)}
+footer .fnote{font-size:.82rem;opacity:.7;max-width:30em;margin-top:8px}
+footer .company{font-size:.78rem;opacity:.7;line-height:1.9}
+footer .copy{font-size:.74rem;opacity:.5;margin-top:24px;width:100%;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
+
+/* floating cta */
+.float-cta{position:fixed;left:0;right:0;bottom:0;z-index:90;padding:11px 16px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:none}
+.float-cta .btn{width:100%}
+@media(max-width:640px){.float-cta{display:block}body{padding-bottom:74px}}
+</style>
+</head>
+<body>
+
+<!-- ============ header ============ -->
+<header class="topbar">
+  <div class="brand"><span class="logo">Renove<span class="dot">.</span>recipe</span><span class="tag">改装判断</span></div>
+  <a href="#form" class="btn" data-cta="header">無料診断を申し込む</a>
+</header>
+
+<!-- ============ hero ============ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow">自主管理オーナーのための改装判断</span>
+      <h1>退去のたびの<br>「この部屋、どう直そう」を、<br><span class="hl">プロにおまかせ。</span></h1>
+      <p class="lead">何を直すか・いくらかかるか・誰に貸すか。毎回<span class="accent">2週間</span>悩んだ判断を、競合とニーズのデータから<span class="accent">「埋まる改装」</span>へ。地元工務店3社の見積比較・発注まで、まるごと。</p>
+      <div class="hero-cta">
+        <a href="#form" class="btn btn-lg" data-cta="hero">無料で改装診断を申し込む<span class="arr">→</span></a>
+        <a href="#how" class="btn btn-lg btn-ghost">使い方を見る</a>
+      </div>
+      <div class="micro">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>入力は住所と間取りだけ</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>診断モニターは費用0円</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>しつこい営業なし</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="main"><img src="images/hero-main.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&q=72&w=1000'" alt="自然光のさすナチュラルな内装イメージ" loading="eager"></div>
+      <div class="badge">退去 → 入居まで<br><b>最短</b><small>差別化して、早く埋める</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ scale strip ============ -->
+<section class="scale">
+  <div class="wrap scale-in">
+    <div class="col"><div class="num">1都3県</div><div class="lbl">対応エリア（東京・神奈川・埼玉・千葉）</div></div>
+    <div class="col"><div class="num">3社</div><div class="lbl">地元工務店の相見積もり</div></div>
+    <div class="col"><div class="num">先着3名</div><div class="lbl">いま無料診断モニター募集中（7月中）</div></div>
+  </div>
+</section>
+
+<!-- ============ 課題 ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">CHECK</span>
+      <h2>退去のたび、こんな判断に<br><span class="hl">時間を溶かして</span>いませんか？</h2>
+      <p>管理会社に任せず自分で決めるからこそ、毎回ふりだしに戻ってしまう。</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.5-3 4"/><path d="M12 17h.01"/></svg></div><h3>何を直せば<br>正解かわからない</h3><p>水回り？壁紙？間取り？情報がなく、結局"勘"で決めるしかない。</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>気づけば<br><span class="accent">2週間・40時間</span></h3><p>相場を調べ、業者を探し、見積を待つ。本業の合間にこれを毎回。</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div><h3>直しても差別化できず<br>結局埋まらない</h3><p>お金をかけたのに周りと似た部屋。空室が伸び、家賃も下げるはめに。</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M8 12h8M8 16h5"/></svg></div><h3>見積がバラバラで<br>比較が地獄</h3><p>工務店ごとに工事内容も金額も違う。問い合わせて確認、また確認…。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ソリューション（提供価値3本柱） ============ -->
+<section class="sec bg-soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">SOLUTION</span>
+      <h2>「早く・安く・<span class="hl">おしゃれに</span>」を、<br>仕組みで実現する。</h2>
+    </div>
+    <div class="values">
+      <div class="value"><div class="vp"><img src="images/value-01.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&q=70&w=700'" alt="ナチュラルなリビングの内装イメージ" loading="lazy"></div><div class="vb"><div class="no en">01</div><h3>埋まる判断</h3><p>勘ではなく、周辺の競合物件と入居ニーズのデータから「差別化できる改装」を提示。その立地で"いま選ばれる部屋"に。</p></div></div>
+      <div class="value"><div class="vp"><img src="images/value-02.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=70&w=700'" alt="明るいミニマルな部屋の内装イメージ" loading="lazy"></div><div class="vb"><div class="no en">02</div><h3>手間ゼロ・最短</h3><p>あなたの作業は入力だけ。あとは専門家が訪問し、改装内容も見積依頼書も用意。<span class="accent">40時間</span>の悩みから解放。</p></div></div>
+      <div class="value"><div class="vp"><img src="images/value-03.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=70&w=700'" alt="やわらかな光のダイニングの内装イメージ" loading="lazy"></div><div class="vb"><div class="no en">03</div><h3>見積が透明・<br>そのまま発注</h3><p>同条件で地元工務店3社を自動比較。バラバラ見積の問い合わせは不要。納得したらその場で発注まで。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 選ばれる4つの理由（alternating） ============ -->
+<section class="sec bg-cream">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">REASON</span><h2>選ばれる<span class="hl">4つの理由</span></h2></div>
+
+    <div class="reason">
+      <div class="r-img"><img src="images/reason-01.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=70&w=900'" alt="データで導く改装イメージ" loading="lazy"></div>
+      <div class="r-txt"><div class="rnum en">01</div><div class="rkick">DATA-DRIVEN</div><h3>流行りでも勘でもなく、<br>その立地のデータで決める</h3><p>周辺の競合物件を自動取得し、まだ満たされていない入居ニーズ（ペルソナ）を特定。競合とかぶらない改装を提案するから、<span class="accent">差別化できて早く埋まる</span>。</p></div>
+    </div>
+
+    <div class="reason">
+      <div class="r-img"><img src="images/reason-02.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=70&w=900'" alt="専門家の訪問診断イメージ" loading="lazy"></div>
+      <div class="r-txt"><div class="rnum en">02</div><div class="rkick">PRO VISIT</div><h3>退去日に専門家が訪問。<br>現地で見極める</h3><p>図面だけではわからない採光・劣化・におい・周辺環境まで、専門家がその場で確認。机上の提案で終わらせません。</p></div>
+    </div>
+
+    <div class="reason">
+      <div class="r-img"><img src="images/reason-03.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&q=70&w=900'" alt="3社見積の透明比較イメージ" loading="lazy"></div>
+      <div class="r-txt"><div class="rnum en">03</div><div class="rkick">TRANSPARENT</div><h3>工務店3社を、<br>同条件で透明に比較</h3><p>同じ見積依頼書をもとに地元工務店3社が見積。工事内容を揃えて比較できるから、"何が違うのか問い合わせる"手間がゼロに。発注も任意です。</p></div>
+    </div>
+
+    <div class="reason">
+      <div class="r-img"><img src="images/reason-04.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=70&w=900'" alt="時短イメージ" loading="lazy"></div>
+      <div class="r-txt"><div class="rnum en">04</div><div class="rkick">TIME-SAVING</div><h3>自分でやるより、<br>圧倒的に早い・ラク</h3>
+        <table class="cmp">
+          <thead><tr><th>項目</th><th class="you">自分でやる</th><th class="me">リノベレシピ</th></tr></thead>
+          <tbody>
+            <tr><td>かかる時間</td><td class="you">約40時間</td><td class="me">入力数分</td></tr>
+            <tr><td>改装内容の根拠</td><td class="you">勘・経験</td><td class="me">競合×ニーズ</td></tr>
+            <tr><td>見積比較</td><td class="you">バラバラ</td><td class="me">3社・同条件</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 代表（空間デザイン心理士） ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">FOUNDER</span><h2>診断するのは、<span class="hl">空間デザイン心理士</span>。</h2><p>「なんとなくおしゃれ」ではなく、住む人の心理とデータから"選ばれる部屋"を設計します。</p></div>
+    <div class="founder">
+      <!-- 顔写真は images/founder.jpg を入れると表示されます（無い間はイニシャル「平」を表示） -->
+      <div class="fphoto"><img src="images/founder.jpg" onerror="this.style.display='none'" alt="代表 平岩 小絵">平</div>
+      <div>
+        <span class="qual">空間デザイン心理士</span>
+        <h3>平岩 小絵</h3>
+        <div class="frole">リノベレシピ代表 ／ 改装プランナー</div>
+        <p><strong>祖母の賃貸物件の運用</strong>が原点。空室と改装の難しさに向き合うなかで、「何を直せば本当に埋まるのか」を実物件で突き詰めてきました。住む人の心理と行動から空間を設計する<strong>空間デザイン心理士</strong>として、流行りや勘ではなく、その立地で本当に選ばれる部屋をデータと心理の両面から導きます。退去のたびに改装で悩むオーナーの負担をなくしたい——その想いでリノベレシピを立ち上げました。</p>
+        <div class="tags"><span>空間デザイン×心理</span><span>祖母の物件運用が原点</span><span>築古再生</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 改装実績（CASE） ============ -->
+<section class="sec bg-soft">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">CASE</span><h2>代表自身の、<span class="hl">改装実績</span>。</h2><p>「埋まる改装」を、まず自分の物件で実証してきました。<br><span style="font-size:.86em;color:var(--ink-soft)">※代表・平岩自身が運用する物件での実績です。</span></p></div>
+    <div class="cases">
+      <div class="case">
+        <div class="cno">CASE 01</div>
+        <div class="metric"><div class="ml">改装費</div><div class="mv"><span class="before">95万円</span><span class="arr">→</span><span class="after">50万円</span><span class="badge">▲47%</span></div></div>
+        <div class="metric"><div class="ml">賃料</div><div class="mv"><span class="before">4.8万円</span><span class="arr">→</span><span class="after">6万円</span><span class="badge up">+25%</span></div></div>
+        <div class="metric big"><div class="ml">10年間の収支</div><div class="mv"><span class="result-num">+217万円</span></div></div>
+      </div>
+      <div class="case">
+        <div class="cno">CASE 02 ｜ 1棟・3LDK</div>
+        <div class="metric"><div class="ml">改装費</div><div class="mv"><span class="before">予算60万円</span><span class="arr">→</span><span class="after">28万円</span><span class="badge">▲53%</span></div></div>
+        <div class="metric"><div class="ml">賃料</div><div class="mv"><span class="before">20万円</span><span class="arr">→</span><span class="after">22万円</span><span class="badge up">+10%</span></div></div>
+        <div class="metric big"><div class="ml">ポイント</div><div class="mv"><span class="result-num" style="font-size:1.15rem">予算を抑えて、賃料アップ</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 利用フロー ============ -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">STEP</span><h2>申込から発注まで、<span class="hl">4ステップ</span></h2><p>退去のタイミングに合わせて、まるごとお任せ。</p></div>
+    <div class="steps">
+      <div class="step"><div class="sno en">1</div><h3>入力する</h3><p>住所・間取り・予算・退去予定日を入れるだけ。数分で完了。</p><svg class="arr" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="step"><div class="sno en">2</div><h3>訪問診断</h3><p>退去日に専門家が訪問。直すべき箇所をその場で見極め。</p><svg class="arr" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="step"><div class="sno en">3</div><h3>改装内容＋見積書</h3><p>「埋まる改装内容」と狙う入居者像、見積依頼書をお届け。</p><svg class="arr" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="step"><div class="sno en">4</div><h3>3社比較・発注</h3><p>地元工務店3社の見積を同条件で比較。納得したらそのまま発注。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 安心ポイント ============ -->
+<section class="sec bg-cream">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">SUPPORT</span><h2>はじめてでも、<span class="hl">安心</span>。</h2></div>
+    <ul class="trust">
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>追加費用なし</b><p>診断後にこっそり費用が乗ることはありません。料金は事前に明示します。</p></div></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>中立な見積比較</b><p>特定の工務店に誘導しません。比較して選ぶ・選ばないはオーナーさまの自由。</p></div></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>しつこい営業なし</b><p>診断結果のご説明と、ご希望範囲のご連絡のみ。発注の強制はありません。</p></div></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>個人情報の保護</b><p>診断とご連絡の目的のみに利用。同意なく第三者に提供しません。</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 料金 ============ -->
+<section class="sec bg-soft">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">PRICE</span><h2>わかりやすい、<span class="hl">2つだけ</span>。</h2><p>あとから上乗せされる費用はありません。</p></div>
+    <div class="pricing">
+      <div class="price-c"><div class="pl">改装診断（1件あたり）</div><div class="amount en">¥50,000<small>〜</small></div><p>訪問診断＋「埋まる改装内容」と狙う入居者像、見積依頼書の作成まで。</p></div>
+      <div class="price-c"><div class="pl">工事を発注する場合</div><div class="amount"><span class="en">10%</span></div><p>工務店への発注をご希望の場合のみ（工事費の10%）。発注しなければ費用はかかりません。</p></div>
+    </div>
+    <div class="monitor">
+      <div><b>いまだけ：無料診断モニター枠</b><p>サービス立ち上げにつき、<strong>先着3名</strong>のオーナーさまの改装診断を<strong>無料</strong>で実施中（<strong>7月中</strong>のお申し込み限定）。</p></div>
+      <a href="#form" class="btn" data-cta="monitor">無料枠で申し込む</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>よくあるご質問</h2></div>
+    <div class="faq">
+      <details><summary><span><span class="q">Q.</span>本当に空室は埋まりますか？</span><span class="mk"></span></summary><div class="ans">「必ず」とはお約束できません。ただ、勘ではなく周辺の競合物件と入居ニーズのデータに基づき差別化できる改装をご提案します。「周りと似た部屋」を仕組みで避けるのが私たちの役割です。</div></details>
+      <details><summary><span><span class="q">Q.</span>工務店は自分で選べますか？</span><span class="mk"></span></summary><div class="ans">はい。同じ見積依頼書をもとに地元工務店3社から見積を取り、同条件で比較いただけます。どこに発注するか（しないか）はオーナーさまの自由です。</div></details>
+      <details><summary><span><span class="q">Q.</span>対応エリアはどこですか？</span><span class="mk"></span></summary><div class="ans">現在は<strong>1都3県（東京・神奈川・埼玉・千葉）</strong>を中心に対応しています。エリア外の方も、まずはお気軽にご相談ください。</div></details>
+      <details><summary><span><span class="q">Q.</span>退去前でも相談できますか？</span><span class="mk"></span></summary><div class="ans">もちろんです。退去予定日を入力いただければ、そのタイミングに合わせて訪問診断を調整します。事前相談も歓迎です。</div></details>
+      <details><summary><span><span class="q">Q.</span>個人情報・物件情報はどう扱われますか？</span><span class="mk"></span></summary><div class="ans">改装診断と、それに関するご連絡の目的のみに利用します。ご本人の同意なく第三者に提供することはありません。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 最終CTA / フォーム ============ -->
+<section class="cta-band" id="form">
+  <div class="wrap">
+    <div class="formwrap">
+      <form id="leadForm" novalidate>
+        <div class="form-photo"><img src="images/form.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=70&w=1100'" alt="あたたかなナチュラルインテリアの内装イメージ" loading="lazy"></div>
+        <p class="sub">退去のたびの悩みを、ここで終わりに。</p>
+        <h2>無料で改装診断を申し込む</h2>
+        <span class="free-badge">いまだけ無料モニター枠・最短当日ご返信</span>
+
+        <div class="field" data-field><label>物件の所在地（住所）<span class="req">必須</span></label><input type="text" name="address" placeholder="例：東京都世田谷区〇〇 1-2-3" required><div class="err">住所をご入力ください</div></div>
+        <div class="grid2">
+          <div class="field" data-field><label>間取り<span class="req">必須</span></label><select name="layout" required><option value="">選択してください</option><option>1R / 1K</option><option>1DK / 1LDK</option><option>2K / 2DK</option><option>2LDK</option><option>3LDK以上</option><option>その他・戸建て</option></select><div class="err">間取りをお選びください</div></div>
+          <div class="field"><label>改装の予算<span class="opt">任意</span></label><select name="budget"><option value="">選択してください</option><option>〜30万円</option><option>30〜60万円</option><option>60〜100万円</option><option>100万円以上</option><option>まだ決めていない</option></select></div>
+        </div>
+        <div class="field"><label>退去予定日<span class="opt">任意</span></label><input type="date" name="moveout"></div>
+        <div class="grid2">
+          <div class="field" data-field><label>お名前<span class="req">必須</span></label><input type="text" name="name" placeholder="例：山田 太郎" required><div class="err">お名前をご入力ください</div></div>
+          <div class="field" data-field><label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" placeholder="例：you@example.com" required><div class="err">正しいメールアドレスをご入力ください</div></div>
+        </div>
+        <div class="field"><label>お電話番号<span class="opt">任意</span></label><input type="tel" name="tel" placeholder="例：090-1234-5678"></div>
+        <div class="field"><label>お悩み・ご要望<span class="opt">任意</span></label><textarea name="message" placeholder="例：和室をどう活かすか迷っています／前回は3ヶ月空室でした など"></textarea></div>
+
+        <button type="submit" class="btn btn-lg form-cta" data-cta="form-submit">無料診断を申し込む<span class="arr">→</span></button>
+        <p class="form-note">送信いただいても費用は一切かかりません。しつこい営業はいたしません。<br>お急ぎの方は <a href="mailto:s.hiraiwa@renoverecipe.com" style="color:var(--coral-deep);font-weight:700">s.hiraiwa@renoverecipe.com</a> へ直接どうぞ。</p>
+      </form>
+      <div class="thanks" id="thanks">
+        <div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>お申し込みありがとうございます</h3>
+        <p>担当より<strong>2営業日以内</strong>にご連絡いたします。<br>退去のタイミングに合わせて、訪問診断の日程を調整させていただきます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ footer ============ -->
+<footer>
+  <div class="wrap ft">
+    <div>
+      <a class="logo" href="https://renoverecipe.com/" target="_blank" rel="noopener" style="text-decoration:none;display:inline-block">Renove<span class="dot">.</span>recipe</a>
+      <p class="fnote">賃貸オーナーの改装判断を、早く・安く・おしゃれに。退去のたびの「どう直そう」を、データで「埋まる改装」に。</p>
+    </div>
+    <div class="company">
+      運営：リノベレシピ｜代表：平岩 小絵<br>
+      公式サイト：<a href="https://renoverecipe.com/" target="_blank" rel="noopener" style="color:#e9ded6">renoverecipe.com</a><br>
+      お問い合わせ：<a href="mailto:s.hiraiwa@renoverecipe.com" style="color:#e9ded6">s.hiraiwa@renoverecipe.com</a>
+      <!-- ※有料課金をページ内で始める段階で、所在地等を含む「特定商取引法に基づく表記」を追加してください -->
+      <!-- ※フォームで個人情報を取得するため、プライバシーポリシーのページができたらここにリンクを追加すると安心です -->
+
+    </div>
+  </div>
+  <div class="wrap"><div class="copy">© 2026 Renove.recipe — 本ページはサービス検証中のプロトタイプです。写真はイメージ（Unsplash）です。</div></div>
+</footer>
+
+<div class="float-cta"><a href="#form" class="btn" data-cta="float">無料で改装診断を申し込む</a></div>
+
+<script>
+document.querySelectorAll('[data-cta]').forEach(function(el){el.addEventListener('click',function(){console.log('[cta_click]',el.dataset.cta);});});
+var form=document.getElementById('leadForm'),thanks=document.getElementById('thanks');
+function validateField(f){var i=f.querySelector('input,select');if(!i)return true;var ok=(i.type==='email')?/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value.trim()):i.value.trim()!=='';f.classList.toggle('invalid',!ok);return ok;}
+form.querySelectorAll('[data-field] input,[data-field] select').forEach(function(i){i.addEventListener('blur',function(){validateField(i.closest('[data-field]'));});i.addEventListener('input',function(){var f=i.closest('[data-field]');if(f.classList.contains('invalid'))validateField(f);});});
+form.addEventListener('submit',function(e){e.preventDefault();var ok=true;form.querySelectorAll('[data-field]').forEach(function(f){if(!validateField(f))ok=false;});if(!ok){var fe=form.querySelector('.invalid');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
+var data=Object.fromEntries(new FormData(form).entries());console.log('[lead_submitted]',data);
+// ▼ メール自動転送：FormSubmit 経由で s.hiraiwa@renoverecipe.com に申込内容が届きます。
+//   ※初回のみ「申込テスト→届いた確認メールのリンクをクリックして有効化」が必要です（1回だけ）。
+//   ※送信先を変える場合は下記URL末尾のメールアドレスを書き換えてください。
+var btn=form.querySelector('[type=submit]');btn.disabled=true;btn.style.opacity=.6;
+var fd=new FormData(form);
+fd.append('_subject','【改装診断 申込】'+(data.name||'')+' 様');
+fd.append('_template','table');
+fd.append('_captcha','false');
+fetch('https://formsubmit.co/ajax/s.hiraiwa@renoverecipe.com',{method:'POST',headers:{'Accept':'application/json'},body:fd})
+  .then(function(r){return r.json();})
+  .then(function(){form.style.display='none';thanks.classList.add('show');thanks.scrollIntoView({behavior:'smooth',block:'center'});})
+  .catch(function(){btn.disabled=false;btn.style.opacity=1;alert('送信に失敗しました。お手数ですが s.hiraiwa@renoverecipe.com へ直接ご連絡ください。');});
+});
+</script>
+</body>
+</html>
