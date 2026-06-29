@@ -583,23 +583,14 @@ footer .copy{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,
       <form id="leadForm" novalidate>
         <span class="free-badge">初回診断は無料・最短当日ご返信</span>
         <h2>無料で改装診断を申し込む</h2>
-        <p class="fsub">下記を入力するだけ。あとは専門家にお任せください。</p>
+        <p class="fsub">まずはお名前とメールだけ。30秒で完了します。詳しい物件情報はこちらから折り返しお伺いします。</p>
 
         <div class="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:0 16px">
           <div class="field" data-field><label>お名前<span class="req">必須</span></label><input type="text" name="name" placeholder="例：山田 太郎" required><div class="err">お名前をご入力ください</div></div>
           <div class="field" data-field><label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" placeholder="例：you@example.com" required><div class="err">正しいメールアドレスをご入力ください</div></div>
         </div>
-        <div class="field" data-field><label>物件の所在地<span class="req">必須</span></label><input type="text" name="address" placeholder="例：東京都世田谷区〇〇 1-2-3" required><div class="err">物件の所在地をご入力ください</div></div>
-        <div class="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:0 16px">
-          <div class="field" data-field><label>物件種別<span class="req">必須</span></label><select name="property_type" required><option value="">選択してください</option><option>マンション</option><option>アパート</option><option>戸建て</option><option>その他</option></select><div class="err">物件種別をお選びください</div></div>
-          <div class="field" data-field><label>間取り<span class="req">必須</span></label><select name="layout" required><option value="">選択してください</option><option>1R / 1K</option><option>1DK / 1LDK</option><option>2K / 2DK</option><option>2LDK</option><option>3LDK以上</option><option>その他・戸建て</option></select><div class="err">間取りをお選びください</div></div>
-        </div>
-        <div class="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:0 16px">
-          <div class="field"><label>大きさ<span class="opt">任意</span></label><input type="number" name="size_sqm" min="1" placeholder="例：35（㎡）"></div>
-          <div class="field" data-field><label>お部屋の状況<span class="req">必須</span></label><select name="room_status" id="roomStatus" required><option value="">選択してください</option><option>退去予定</option><option>空室中（退去済み）</option><option>入居中（検討段階）</option></select><div class="err">お部屋の状況をお選びください</div></div>
-        </div>
-        <div class="field" id="moveoutWrap" style="display:none"><label>退去予定日<span class="opt">任意</span></label><input type="date" name="moveout_date"><p class="form-hint">日程が未定の場合は空欄のままで構いません。</p></div>
-        <div class="field"><label>相談内容<span class="opt">任意</span></label><textarea name="message" placeholder="例：和室をどう活かすか迷っています／前回は3ヶ月空室でした など"></textarea></div>
+        <div class="field"><label>物件のエリア<span class="opt">任意</span></label><input type="text" name="address" placeholder="例：世田谷区（市区町村まででOK）"></div>
+        <div class="field"><label>ご相談・ご要望<span class="opt">任意</span></label><textarea name="message" placeholder="例：和室をどう活かすか迷っています／前回は3ヶ月空室でした など"></textarea></div>
 
         <button type="submit" class="btn btn-lg form-cta" data-cta="form-submit">無料で改装診断を申し込む<span class="arr">→</span></button>
         <p class="form-note">送信いただいても費用は一切かかりません。しつこい営業はいたしません。<br>お急ぎの方は <a href="mailto:s.hiraiwa@renoverecipe.com" style="color:var(--navy);font-weight:700">s.hiraiwa@renoverecipe.com</a> へ直接どうぞ。</p>
@@ -648,9 +639,6 @@ document.querySelectorAll('[data-cta]').forEach(function(el){el.addEventListener
 
 /* ---- フォーム：バリデーション＋送信 ---- */
 var form=document.getElementById('leadForm'),thanks=document.getElementById('thanks');
-/* お部屋の状況が「退去予定」のときだけ退去予定日を表示 */
-(function(){var rs=document.getElementById('roomStatus'),mw=document.getElementById('moveoutWrap');
-if(rs&&mw){rs.addEventListener('change',function(){mw.style.display=(rs.value==='退去予定')?'block':'none';});}})();
 function validateField(f){var i=f.querySelector('input,select');if(!i)return true;var ok=(i.type==='email')?/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value.trim()):i.value.trim()!=='';f.classList.toggle('invalid',!ok);return ok;}
 form.querySelectorAll('[data-field] input,[data-field] select').forEach(function(i){i.addEventListener('blur',function(){validateField(i.closest('[data-field]'));});i.addEventListener('input',function(){var f=i.closest('[data-field]');if(f.classList.contains('invalid'))validateField(f);});});
 form.addEventListener('submit',function(e){e.preventDefault();var ok=true;form.querySelectorAll('[data-field]').forEach(function(f){if(!validateField(f))ok=false;});if(!ok){var fe=form.querySelector('.invalid');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
